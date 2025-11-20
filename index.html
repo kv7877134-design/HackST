@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackST - Читы для игр</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+        body{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px}
+        .container{max-width:1000px;width:100%;text-align:center}
+        header{margin-bottom:30px;padding:20px;border-bottom:2px solid #e94560}
+        .logo{font-size:3rem;font-weight:800;margin-bottom:10px;background:linear-gradient(45deg,#e94560,#ff7e5f);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 10px rgba(233,69,96,0.3)}
+        .tagline{font-size:1.2rem;color:#a9b7c6;margin-bottom:20px}
+        .game-selector{display:flex;justify-content:center;flex-wrap:wrap;gap:15px;margin-bottom:30px}
+        .game-btn{background:rgba(255,255,255,0.1);border:2px solid transparent;border-radius:10px;padding:15px 25px;color:white;font-size:1rem;cursor:pointer;transition:all 0.3s ease}
+        .game-btn:hover{background:rgba(233,69,96,0.2);transform:translateY(-3px)}
+        .game-btn.active{background:rgba(233,69,96,0.3);border-color:#e94560;box-shadow:0 5px 15px rgba(233,69,96,0.3)}
+        .main-content{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.3);margin-bottom:30px;border:1px solid rgba(255,255,255,0.1)}
+        .game-info{display:none;margin-bottom:25px}
+        .game-info.active{display:block}
+        .game-title{color:#e94560;margin-bottom:15px;font-size:1.8rem}
+        .features{display:flex;justify-content:center;flex-wrap:wrap;gap:15px;margin:20px 0}
+        .feature{flex:1;min-width:180px;padding:15px;background:rgba(255,255,255,0.05);border-radius:10px;border-left:3px solid #e94560}
+        .feature h3{color:#e94560;margin-bottom:10px;font-size:1rem}
+        .feature p{color:#a9b7c6;font-size:0.85rem}
+        .download-section{margin:25px 0}
+        .download-btn{background:#e94560;color:white;border:none;padding:15px 40px;font-size:1.2rem;border-radius:10px;cursor:pointer;transition:all 0.3s ease;margin-top:20px}
+        .download-btn:hover{background:#ff7e5f;transform:translateY(-2px)}
+        .download-btn:disabled{background:#666;cursor:not-allowed;transform:none}
+        .timer-container{background:rgba(0,0,0,0.3);border-radius:10px;padding:20px;margin:25px 0;border:1px solid rgba(233,69,96,0.3)}
+        .timer{font-size:3.5rem;font-weight:700;color:#e94560;text-shadow:0 0 10px rgba(233,69,96,0.5);margin:10px 0}
+        .timer-label{font-size:1.2rem;color:#a9b7c6}
+        .progress-container{width:100%;height:10px;background:rgba(255,255,255,0.1);border-radius:5px;margin:20px 0;overflow:hidden}
+        .progress-bar{height:100%;background:linear-gradient(90deg,#e94560,#ff7e5f);border-radius:5px;width:0%;transition:width 1s linear}
+        footer{margin-top:20px;color:#a9b7c6;font-size:0.9rem;text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1);width:100%}
+        @media (max-width:768px){.logo{font-size:2.2rem}.timer{font-size:2.5rem}.game-btn{padding:10px 15px;font-size:0.9rem}.feature{min-width:150px}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">HackST</h1>
+            <p class="tagline">Мощные читы для популярных игр</p>
+        </header>
+
+        <div class="game-selector">
+            <button class="game-btn active" data-game="roblox">Roblox</button>
+            <button class="game-btn" data-game="cs2">CS 2</button>
+            <button class="game-btn" data-game="dota2">Dota 2</button>
+            <button class="game-btn" data-game="minecraft">Minecraft</button>
+            <button class="game-btn" data-game="genshin">Genshin Impact</button>
+            <button class="game-btn" data-game="fortnite">Fortnite</button>
+        </div>
+
+        <div class="main-content">
+            <div class="game-info active" id="roblox-info">
+                <h2 class="game-title">Roblox Читы</h2>
+                <div class="features">
+                    <div class="feature" data-cheat="Solara v3">
+                        <h3>Solara v3</h3>
+                        <p>Мощный исполнитель скриптов</p>
+                    </div>
+                    <div class="feature" data-cheat="Delta Executor">
+                        <h3>Delta Executor</h3>
+                        <p>Стабильный и надежный</p>
+                    </div>
+                    <div class="feature" data-cheat="Xeno">
+                        <h3>Xeno</h3>
+                        <p>Новый мощный эксплойт</p>
+                    </div>
+                    <div class="feature" data-cheat="Vodka Executor">
+                        <h3>Vodka Executor</h3>
+                        <p>Мощный Executor Roblox</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-info" id="cs2-info">
+                <h2 class="game-title">CS 2 Читы</h2>
+                <div class="features">
+                    <div class="feature" data-cheat="Wallhack CS2">
+                        <h3>Wallhack</h3>
+                        <p>Вид через стены</p>
+                    </div>
+                    <div class="feature" data-cheat="AimBot CS2">
+                        <h3>AimBot</h3>
+                        <p>Автоматическое прицеливание</p>
+                    </div>
+                    <div class="feature" data-cheat="TriggerBot CS2">
+                        <h3>TriggerBot</h3>
+                        <p>Авто-стрельба при наведении</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-info" id="dota2-info">
+                <h2 class="game-title">Dota 2 Читы</h2>
+                <div class="features">
+                    <div class="feature" data-cheat="Map Hack Dota2">
+                        <h3>Map Hack</h3>
+                        <p>Обзор всей карты</p>
+                    </div>
+                    <div class="feature" data-cheat="Auto Dodge Dota2">
+                        <h3>Auto Dodge</h3>
+                        <p>Авто-уклонение от способностей</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-info" id="minecraft-info">
+                <h2 class="game-title">Minecraft Читы</h2>
+                <div class="features">
+                    <div class="feature" data-cheat="WexSide Client">
+                        <h3>WexSide Client</h3>
+                        <p>Популярный чит для майнкрафт</p>
+                    </div>
+                    <div class="feature" data-cheat="Aristois">
+                        <h3>Aristois</h3>
+                        <p>Многофункциональный клиент</p>
+                    </div>
+                    <div class="feature" data-cheat="Delta Client">
+                        <h3>Delta Client</h3>
+                        <p>Кряк легендарного чита</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-info" id="genshin-info">
+                <h2 class="game-title">Genshin Impact Читы</h2>
+                <div class="features">
+                    <div class="feature" data-cheat="Анти-Кик Genshin">
+                        <h3>Анти-Кик</h3>
+                        <p>Защита от вылетов из игры</p>
+                    </div>
+                    <div class="feature" data-cheat="ESP Genshin">
+                        <h3>ESP</h3>
+                        <p>Отображение врагов и ресурсов</p>
+                    </div>
+                    <div class="feature" data-cheat="Авто-фарм Genshin">
+                        <h3>Авто-фарм</h3>
+                        <p>Автоматический сбор ресурсов</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-info" id="fortnite-info">
+                <h2 class="game-title">Fortnite Читы</h2>
+                <div class="features">
+                    <div class="feature" data-cheat="AimBot Fortnite">
+                        <h3>AimBot</h3>
+                        <p>Точный прицел</p>
+                    </div>
+                    <div class="feature" data-cheat="ESP Fortnite">
+                        <h3>ESP</h3>
+                        <p>Обводка игроков</p>
+                    </div>
+                    <div class="feature" data-cheat="No Recoil Fortnite">
+                        <h3>No Recoil</h3>
+                        <p>Нет отдачи</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <div class="timer-container">
+                    <div class="timer-label">До загрузки осталось:</div>
+                    <div class="timer" id="timer">3</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+                <button class="download-btn" id="downloadBtn" disabled>Скачать выбранный чит</button>
+                <p id="selectedCheat" style="color:#a9b7c6;margin-top:10px"></p>
+            </div>
+        </div>
+
+        <footer>
+            <p>HackST &copy; 2023 | Все права защищены</p>
+        </footer>
+    </div>
+
+    <script>
+        let selectedCheat = '';
+        let countdown;
+        
+        const gameButtons = document.querySelectorAll('.game-btn');
+        const gameInfos = document.querySelectorAll('.game-info');
+        const features = document.querySelectorAll('.feature');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const selectedCheatText = document.getElementById('selectedCheat');
+        const timerElement = document.getElementById('timer');
+        const progressBar = document.getElementById('progress-bar');
+        
+        gameButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                gameButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                gameInfos.forEach(info => info.classList.remove('active'));
+                document.getElementById(`${button.dataset.game}-info`).classList.add('active');
+                
+                selectedCheat = '';
+                downloadBtn.disabled = true;
+                selectedCheatText.textContent = '';
+                resetTimer();
+            });
+        });
+        
+        features.forEach(feature => {
+            feature.addEventListener('click', () => {
+                features.forEach(f => f.style.background = 'rgba(255,255,255,0.05)');
+                feature.style.background = 'rgba(233,69,96,0.2)';
+                
+                selectedCheat = feature.dataset.cheat;
+                downloadBtn.disabled = false;
+                selectedCheatText.textContent = `Выбран: ${selectedCheat}`;
+                resetTimer();
+            });
+        });
+        
+        downloadBtn.addEventListener('click', startDownload);
+        
+        function resetTimer() {
+            clearInterval(countdown);
+            timerElement.textContent = '3';
+            progressBar.style.width = '0%';
+            downloadBtn.disabled = !selectedCheat;
+        }
+        
+        function startDownload() {
+            if (!selectedCheat) return;
+            
+            downloadBtn.disabled = true;
+            let timeLeft = 3;
+            
+            countdown = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                progressBar.style.width = `${((3 - timeLeft) / 3) * 100}%`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    window.location.href = 'https://youtu.be/C8GVjEoJ2Dc?si=OzkCMUi71L_q6TlO';
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+              </html> 
