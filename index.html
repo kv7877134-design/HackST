@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackST - Кряки и читы для игр</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 2px solid #e94560;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #e94560, #ff7e5f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(233, 69, 96, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #a9b7c6;
+            margin-bottom: 20px;
+        }
+
+        .game-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .game-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px 25px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .game-btn:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .game-btn.active {
+            background: rgba(233, 69, 96, 0.3);
+            border-color: #e94560;
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-info {
+            display: none;
+            margin-bottom: 25px;
+        }
+
+        .game-info.active {
+            display: block;
+        }
+
+        .game-title {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 150px;
+            margin: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid #e94560;
+        }
+
+        .feature h3 {
+            color: #e94560;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .download-info {
+            margin-bottom: 25px;
+        }
+
+        .download-info h2 {
+            color: #e94560;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .download-info p {
+            color: #a9b7c6;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .timer-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .timer {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #e94560;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            margin: 10px 0;
+        }
+
+        .timer-label {
+            font-size: 1.2rem;
+            color: #a9b7c6;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560, #ff7e5f);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 1s linear;
+        }
+
+        .ad-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .ad-label {
+            color: #a9b7c6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .ad-placeholder {
+            width: 300px;
+            height: 250px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #a9b7c6;
+            font-style: italic;
+        }
+
+        .ad-placeholder i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .monetization-info {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #a9f5aa;
+        }
+
+        .monetization-info h3 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #a9b7c6;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .timer {
+                font-size: 2.5rem;
+            }
+            
+            .ad-placeholder {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .game-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">HackST</h1>
+            <p class="tagline">Мощные кряки и читы для популярных игр</p>
+        </header>
+
+        <div class="game-selector">
+            <button class="game-btn active" data-game="genshin">Genshin Impact</button>
+            <button class="game-btn" data-game="cs2">CS 2</button>
+            <button class="game-btn" data-game="minecraft">Minecraft</button>
+            <button class="game-btn" data-game="rust">Rust</button>
+            <button class="game-btn" data-game="fortnite">Fortnite</button>
+        </div>
+
+        <div class="main-content">
+            <!-- Genshin Impact -->
+            <div class="game-info active" id="genshin-info">
+                <h2 class="game-title">Genshin Impact Читы</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Анти-Кик</h3>
+                        <p>Защита от вылетов из игры</p>
+                    </div>
+                    <div class="feature">
+                        <h3>ESP</h3>
+                        <p>Отображение врагов и ресурсов</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Скин-ченджер</h3>
+                        <p>Изменение внешнего вида персонажей</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CS 2 -->
+            <div class="game-info" id="cs2-info">
+                <h2 class="game-title">CS 2 Читы</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>ESP</h3>
+                        <p>Вид через стены</p>
+                    </div>
+                    <div class="feature">
+                        <h3>AimBot</h3>
+                        <p>Автоматическое прицеливание</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Fly</h3>
+                        <p>Режим полета</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Minecraft -->
+            <div class="game-info" id="minecraft-info">
+                <h2 class="game-title">Minecraft Читы</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Nursultan Crack</h3>
+                        <p>Премиум взлом</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Delta Client</h3>
+                        <p>Мощный клиент</p>
+                    </div>
+                    <div class="feature">
+                        <h3>WexSide</h3>
+                        <p>Дополнительные функции</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rust -->
+            <div class="game-info" id="rust-info">
+                <h2 class="game-title">Rust Читы</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Анти-кик</h3>
+                        <p>Защита от киков</p>
+                    </div>
+                    <div class="feature">
+                        <h3>AimBot</h3>
+                        <p>Точное прицеливание</p>
+                    </div>
+                    <div class="feature">
+                        <h3>ESP</h3>
+                        <p>Радар и информация</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fortnite -->
+            <div class="game-info" id="fortnite-info">
+                <h2 class="game-title">Fortnite Читы</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Fly</h3>
+                        <p>Режим полета</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Fast State</h3>
+                        <p>Ускорение игры</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Kill Aura</h3>
+                        <p>Авто-атака</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-info">
+                <h2>Скачать читы</h2>
+                <p>Пожалуйста, подождите 30 секунд для загрузки файла. Пока вы ждете, поддержите нас, посмотрев рекламу.</p>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer-label">До загрузки осталось:</div>
+                <div class="timer" id="timer">30</div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="monetization-info">
+                <h3>Поддержите проект!</h3>
+                <p>Просмотр рекламы помогает нам развивать проект и добавлять новые функции. Спасибо за вашу поддержку!</p>
+            </div>
+
+            <div class="ad-container">
+                <div class="ad-label">Реклама VK Ads</div>
+                <div class="ad-placeholder">
+                    <i>Рекламный баннер VK</i>
+                    <span>Монетизация через VK Ads</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>HackST &copy; 2023 | Все права не защищены | Это демонстрационный сайт</p>
+        </footer>
+    </div>
+
+    <script>
+        // Переключение между играми
+        const gameButtons = document.querySelectorAll('.game-btn');
+        const gameInfos = document.querySelectorAll('.game-info');
+        
+        gameButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Убираем активный класс у всех кнопок
+                gameButtons.forEach(btn => btn.classList.remove('active'));
+                // Добавляем активный класс к нажатой кнопке
+                button.classList.add('active');
+                
+                // Скрываем все блоки с информацией
+                gameInfos.forEach(info => info.classList.remove('active'));
+                // Показываем нужный блок
+                const gameId = button.getAttribute('data-game');
+                document.getElementById(`${gameId}-info`).classList.add('active');
+            });
+        });
+        
+        // Таймер обратного отсчета
+        let timeLeft = 30;
+        const timerElement = document.getElementById('timer');
+        const progressBar = document.getElementById('progress-bar');
+        
+        // Обновление таймера каждую секунду
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            
+            // Обновление прогресс-бара
+            const progress = ((30 - timeLeft) / 30) * 100;
+            progressBar.style.width = `${progress}%`;
+            
+            // Когда время вышло
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                // Перенаправление на указанный URL
+                window.location.href = 'https://google.com';
+            }
+        }, 1000);
+        
+        // Имитация загрузки VK Ads (в реальном проекте здесь будет код VK Ads)
+        console.log('VK Ads initialized for monetization');
+        
+        // В реальном проекте здесь будет код для загрузки и показа рекламы VK
+        // Например: 
+        // VK.Retargeting.Init("YOUR_VK_ADS_ID");
+        // VK.Retargeting.Event("view_content");
+    </script>
+</body>
+</html>
